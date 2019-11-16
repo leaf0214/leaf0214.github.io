@@ -1,0 +1,15 @@
+- name: Software Engineer Keywords
+  keywords:
+      - Java
+      - Go
+      - Python
+      - C++
+
+- name: Web Developer Keywords
+  keywords:
+      - JavaScript
+      - jQuery
+
+- name: Mobile Developer Keywords
+  keywords:
+      - Cordova
