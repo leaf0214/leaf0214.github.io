@@ -38,13 +38,13 @@ keywords: Docker
 
 1. ubuntu 安装nvidia-docker
 
-安装docker-ce
+    安装docker-ce
 
    ```
     sudo curl https://get.docker.com | sudo sh
    ```
 
-安装ncidia-docker
+    安装ncidia-docker
 
    ```
     curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
@@ -56,7 +56,7 @@ keywords: Docker
     sudo usermod -aG docker $USER﻿​
    ```
 
-错误问题解决
+    错误问题解决
 
    ```
     /bin/nvidia-docker: line 34: /bin/docker: Permission denied错误

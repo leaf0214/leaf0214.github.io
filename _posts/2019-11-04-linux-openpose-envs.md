@@ -8,7 +8,7 @@ keywords: Linux
 
 1. 移动硬盘是NTFS格式的，挂载时候kernel不支持这格式
 
-出现：filesystem type ntfs not configured in kernel
+    出现：filesystem type ntfs not configured in kernel
 
    ```
     sudo yum install *ntfs*
@@ -44,14 +44,14 @@ keywords: Linux
 
 1. Shadowsocks作为服务端配置
 
-创建配置文件
+    创建配置文件
 
    ```
     mkdir -p /usr/local/etc/shadowsocks
     vi /usr/local/etc/shadowsocks/server.json
    ```
 
-文件内容
+    文件内容
 
    ```
     {
@@ -62,7 +62,7 @@ keywords: Linux
     }
    ```
 
-添加服务管理文件/etc/systemd/system/ss-server.service，并跟随开机启动。
+    添加服务管理文件/etc/systemd/system/ss-server.service，并跟随开机启动。
 
    ```
     [Unit]
@@ -83,14 +83,14 @@ keywords: Linux
 
 1. Shadowsocks作为客户端配置
 
-创建配置文件
+    创建配置文件
 
    ```
     mkdir -p /usr/local/etc/shadowsocks
     vi /usr/local/etc/shadowsocks/client.json
    ```
 
-文件内容
+    文件内容
 
    ```
     {
@@ -105,7 +105,7 @@ keywords: Linux
     }
    ```
 
-添加服务管理文件/etc/systemd/system/ss-client.service，并跟随开机启动。
+    添加服务管理文件/etc/systemd/system/ss-client.service，并跟随开机启动。
 
    ```
     [Unit]
@@ -126,7 +126,7 @@ keywords: Linux
 
 1. Proxychains4
 
-安装
+    安装
 
    ```
     cd /usr/local/src
@@ -137,7 +137,7 @@ keywords: Linux
     make install-config
    ```
 
-修改配置文件/usr/local/etc/proxychains.conf
+    修改配置文件/usr/local/etc/proxychains.conf
 
    ```
     ...
@@ -150,7 +150,7 @@ keywords: Linux
     socks5 127.0.0.1 1086
    ```
 
-之后使用composer等命令行工具的时候，使用下面命令即可。
+    之后使用composer等命令行工具的时候，使用下面命令即可。
 
    ```
     proxychains4 composer update
@@ -185,7 +185,7 @@ keywords: Linux
     gmake install
    ```
 
-如果步骤六报错，可能原因是关联的程序包未安装。解决方法：安装所需的程序包后，将cmake-2.8.10.2/目录下的CMakeCache.txt删掉，再从步骤六开始。
+    如果步骤六报错，可能原因是关联的程序包未安装。解决方法：安装所需的程序包后，将cmake-2.8.10.2/目录下的CMakeCache.txt删掉，再从步骤六开始。
 
 1. Linux下tar.xz结尾的文件的解压方法
 
@@ -234,7 +234,7 @@ keywords: Linux
 
 1. 安装显卡驱动
 
-下载地址：https://www.geforce.cn/drivers
+    下载地址：https://www.geforce.cn/drivers
 
    ```
     sudo chmod a+x NVIDIA-Linux-x86_64-390.77.run
@@ -247,7 +247,7 @@ keywords: Linux
 
 1. 安装cuda9.0
 
-下载地址：https://developer.nvidia.com/cuda-toolkit-archive
+    下载地址：https://developer.nvidia.com/cuda-toolkit-archive
 
    ```
     sh cuda_9.0.176_384.81_linux.run
@@ -257,7 +257,7 @@ keywords: Linux
     剩下的全部都yes
    ```
 
-配置环境变量
+    配置环境变量
 
    ```
     编辑~/.bashrc文件
@@ -277,7 +277,7 @@ keywords: Linux
 
 1. 安装cudnn7.0.5驱动
 
-下载地址：https://developer.nvidia.com/rdp/cudnn-archive
+    下载地址：https://developer.nvidia.com/rdp/cudnn-archive
 
    ```
     cp cudnn-9.0-linux-x64-v7.solitairetheme8 cudnn-9.0-linux-x64-v7.tgz
@@ -290,7 +290,7 @@ keywords: Linux
 
 1. 安装TensorFlow
 
-安装pyenv
+    安装pyenv
 
    ```
     sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel git
@@ -302,7 +302,7 @@ keywords: Linux
     exec $SHELL -l
    ```
 
-安装tensorflow
+    安装tensorflow
 
    ```
     pip install –ignore-installed –upgrade pip setuptools
@@ -321,7 +321,7 @@ keywords: Linux
 
 1. linux关闭 X server
 
-Ubuntu 16.04 关闭x server
+    Ubuntu 16.04 关闭x server
 
    ```
     sudo /etc/init.d/gdm stop
@@ -329,7 +329,7 @@ Ubuntu 16.04 关闭x server
     sudo /etc/init.d/gdm restart
    ```
 
-centos 7 关闭x server
+    centos 7 关闭x server
 
    ```
     systemctl stop gdm.service
@@ -338,9 +338,9 @@ centos 7 关闭x server
 
 1. NVIDIA GeForce GTX 1060 驱动安装
 
-下载地址：http://www.nvidia.cn/Download/index.aspx?lang=cn
+    下载地址：http://www.nvidia.cn/Download/index.aspx?lang=cn
 
-禁用 nouveau 第三方驱动
+    禁用 nouveau 第三方驱动
 
    ```
     打开编辑配置文件： sudo gedit /etc/modprobe.d/blacklist.conf
@@ -349,7 +349,7 @@ centos 7 关闭x server
     重启使之生效：reboot
    ```
 
-安装 NVIDIA GeForce GTX 1060 驱动
+    安装 NVIDIA GeForce GTX 1060 驱动
 
    ```
     重启后按 Ctrl+Alt+F1 进入命令行界面
@@ -367,10 +367,10 @@ centos 7 关闭x server
 
 1. tensorflow CUDA cudnn 版本对应关系
 
-linux下：
+    linux下：
 
-![](/images/posts/tensorflow/tensorflow-linux.png)
+    ![](/images/posts/tensorflow/tensorflow-linux.png)
 
-windows下：
+    windows下：
 
-![](/images/posts/tensorflow/tensorflow-windows.png)
+    ![](/images/posts/tensorflow/tensorflow-windows.png)

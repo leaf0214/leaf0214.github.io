@@ -13,9 +13,9 @@ keywords: OpenPose
     sudo pip3 install numpy opencv-python
    ```
 
-OpenPose的 Python API，需要在 CMake GUI 中设置 BUILD_PYTHON。
+    OpenPose的 Python API，需要在 CMake GUI 中设置 BUILD_PYTHON。
 
-在 build中运行 make install 安装命令，则 OpenPose 库安装路径为 /usr/local/python。
+    在 build中运行 make install 安装命令，则 OpenPose 库安装路径为 /usr/local/python。
 
 1. 直接利用 OpenPose 库提取人体关键点
 
@@ -169,37 +169,38 @@ OpenPose的 Python API，需要在 CMake GUI 中设置 BUILD_PYTHON。
     plt.show()
    ```
 1. Exporting Python OpenPose
-如果需要将 *.py 脚本移出其原来的路径，或者，在build/examples/tutorial_api_python 路径外新建 *py 脚本.
+    如果需要将 *.py 脚本移出其原来的路径，或者，在build/examples/tutorial_api_python 路径外新建 *py 脚本.
 
-①安装 OpenPose - 在 Ubuntu 系统中，可以通过 sudo make install 安装 OpenPose；然后，在 python 脚本中设置 OpenPose 的安装路径(默认：/usr/local/python)，然后即可在任何位置开始使用 OpenPose。 参考：build/examples/tutorial_pose/1_extract_pose.py。
+    ①安装 OpenPose - 在 Ubuntu 系统中，可以通过 sudo make install 安装 OpenPose；然后，在 python 脚本中设置 OpenPose 的安装路径(默认：/usr/local/python)，然后即可在任何位置开始使用 OpenPose。 参考：build/examples/tutorial_pose/1_extract_pose.py。
 
-②不安装 OpenPose - 为了将 OpenPose Python API Demo 放置在不同的路径，需要在 *.py 脚本中添加 sys.path.append('{OpenPose_path}/python')，其中，{OpenPose_path} 为 OpenPose 的 build 路径。 参考：build/examples/tutorial_pose/1_extract_pose.py。
+    ②不安装 OpenPose - 为了将 OpenPose Python API Demo 放置在不同的路径，需要在 *.py 脚本中添加 sys.path.append('{OpenPose_path}/python')，其中，{OpenPose_path} 为 OpenPose 的 build 路径。 参考：build/examples/tutorial_pose/1_extract_pose.py。
 
 1. Python API 编译时遇到的问题解决
 
-在 openpose 编译完成后，采用 Python API 调用时，遇到如下问题：
+    在 openpose 编译完成后，采用 Python API 调用时，遇到如下问题：
 
    ```
     from . import pyopenpose as pyopenpose
     ImportError: cannot import name pyopenpose
    ```
 
-首先，在 openpose 路径找到文件：build/python/openpose/pyopenpose.cpython-35m-x86_64-linux-gnu.so；复制该文件到路径：/usr/local/lib/python3.5/dist-packages。
+    首先，在 openpose 路径找到文件：build/python/openpose/pyopenpose.cpython-35m-x86_64-linux-gnu.so；复制该文件到路径：/usr/local/lib/python3.5/dist-packages。
 
    ```
     cd OpenPose_rootpath/build/python/openpose/
     sudo cp pyopenpose.cpython-35m-x86_64-linux-gnu.so /usr/local/lib/python3.5/dist-packages/
    ```
 
-然后，进入路径：/usr/local/lib/python3.5/dist-packages，创建软连接：
+    然后，进入路径：/usr/local/lib/python3.5/dist-packages，创建软连接：
 
    ```
     cd /usr/local/lib/python3.5/dist-packages/
     sudo ln -s pyopenpose.cpython-36m-x86_64-linux-gnu.so pyopenpose
    ```
-确认环境变量中 LD_LIBRARY_PATH 包含 /usr/local/lib/python3.5/dist-packages。
 
-最后，在 Python 脚本中调用：
+    确认环境变量中 LD_LIBRARY_PATH 包含 /usr/local/lib/python3.5/dist-packages。
+
+    最后，在 Python 脚本中调用：
 
    ```
     import pyopenpose as op

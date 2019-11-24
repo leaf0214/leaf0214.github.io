@@ -17,9 +17,9 @@ Python创建单例模式4种方式：
                 pass
         site = Singleton()
 
-    类似：
-    import time  第一次已经把导入的time模块，放入内存
-    import time  第二次内存已有就不导入了
+    # 类似：
+    import time  # 第一次已经把导入的time模块，放入内存
+    import time  # 第二次内存已有就不导入了
 
     in  app.py
         from single.py import site #第一次导入，实例化site对象并放入内存
@@ -52,7 +52,7 @@ Python创建单例模式4种方式：
 1. 类方式
 
    ```python
-    缺点：改变了单例的创建方式
+    # 缺点：改变了单例的创建方式
         obj = Singleton.instance()
 
     # 单例模式：无法支持多线程情况

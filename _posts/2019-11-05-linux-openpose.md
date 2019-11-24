@@ -18,7 +18,7 @@ keywords: Linux
     make -j`nproc`
    ```
 
-测试
+    测试
 
    ```
     ./build/examples/openpose/openpose.bin --image_dir examples/media/ --write_images ~/workspace/test/openpose
@@ -36,7 +36,7 @@ keywords: Linux
     bash tools/get_models.sh
    ```
 
-测试
+    测试
 
    ```
     python main.py demo --openpose '~/workspace/openpose/build' --video '~/workspace/test/openpose/henry-push-up.mp4'
@@ -44,14 +44,14 @@ keywords: Linux
 
 1. caffe安装
 
-安装各种依赖包
+    安装各种依赖包
 
    ```
     sudo apt-get install -y --no-install-recommends libboost-all-dev
     sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libboost-all-dev libhdf5-serial-dev libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler libopenblas-dev libatlas-base-dev
    ```
 
-下载caffe
+    下载caffe
 
    ```
     git clone https://github.com/BVLC/caffe
@@ -59,7 +59,7 @@ keywords: Linux
     export CAFFE_HOME=${PWD}
    ```
 
-安装python依赖
+    安装python依赖
 
    ```
     sudo apt-get install python-pip
@@ -69,14 +69,14 @@ keywords: Linux
     for req in $(cat requirements.txt); do sudo pip install $req; done
    ```
 
-修改caffe的Makefile文件
+    修改caffe的Makefile文件
 
    ```
     cd ${CAFFE_HOME}
     vim Makefile.config
    ```
 
-主要有几个属性：
+    主要有几个属性：
 
    ```
     使用CPU还是GPU: 
@@ -92,34 +92,34 @@ keywords: Linux
     # PYTHON_LIB := $(ANACONDA_HOME)/lib
    ```
 
-遇到的错误
+    遇到的错误
 
-编译失败，缺少openlabs
+    编译失败，缺少openlabs
 
    ```
     sudo apt-get install libopenblas-dev
    ```
 
-编译失败，找不到文件 hdf5.h
+    编译失败，找不到文件 hdf5.h
 
    ```
     查找 hdf5.h 文件的位置，例如在 /usr/include/hdf5/serial/hdf5.h
     修改Makefile.config，修改属性 INCLUDE_PATH，添加属性值 /usr/include/hdf5/serial
    ```
 
-链接失败，找不到文件 hdf5_hl hdf5 cblas atlas
+    链接失败，找不到文件 hdf5_hl hdf5 cblas atlas
 
    ```
     locate查找文件的文件，然后添加到 Makefile.config 文件中 LIBEARY_DIS 属性的值里
    ```
 
-链接失败，找不到文件 lcblas latlas
+    链接失败，找不到文件 lcblas latlas
 
    ```
     sudo apt-get install libatlas-base-dev
    ```
 
-执行 make distribute 时找不到 arrayobject.h 文件
+    执行 make distribute 时找不到 arrayobject.h 文件
 
    ```
     sudo apt-get install python-numpy
